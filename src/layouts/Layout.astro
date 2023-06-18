@@ -1,36 +1,55 @@
 ---
+import Nav from "../components/Nav";
+import "@fontsource/roboto/100.css";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+import "@fontsource/roboto/900.css";
+
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
-<style is:global>
-	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
+<style>
+  body {
+    font-family: "Roboto", sans-serif;
+  }
 </style>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body
+    class="container mx-auto mt-4 max-w-5xl bg-slate-950 font-black uppercase tracking-widest text-white"
+  >
+    <div
+      style="clip-path: polygon(100% 0, 60% 0, 100% 100%)"
+      class="fixed inset-0 z-0 bg-orange-600 opacity-75"
+    >
+    </div>
+    <div
+      style="clip-path: polygon(100% 0, 75% 0, 100% 65%)"
+      class="fixed inset-0 -z-10 bg-orange-600"
+    >
+    </div>
+    <div
+      style="clip-path: polygon(45% 0, 55% 0, 95% 100%, 85% 100%)"
+      class="fixed inset-0 -z-10 bg-orange-600 opacity-25"
+    >
+    </div>
+    <Nav client:load />
+    <div class="relative">
+      <slot />
+    </div>
+  </body>
+</html>
