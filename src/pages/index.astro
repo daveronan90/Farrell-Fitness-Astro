@@ -1,7 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import bg from "../assets/HomepageBg.webp";
 ---
 
 <Layout title="Home">
-  <img src="/LogoCycles.gif" alt="Logo" />
+  <Image src={bg} alt="HomepageBg" />
+  <video src="/LogoCycles.webm" loop autoplay></video>
 </Layout>
