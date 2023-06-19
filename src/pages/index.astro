@@ -1,7 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import Logo from "../assets/LogoCycles.gif";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="Home">
-  <img src={"/LogoCycles.gif"} alt={"Logo"} />
+  <Image src={Logo} alt={"Logo"} />
 </Layout>
