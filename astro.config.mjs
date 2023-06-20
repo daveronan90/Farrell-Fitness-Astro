@@ -1,7 +1,7 @@
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
-import { defineConfig, sharpImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 
 import image from "@astrojs/image";
 
