@@ -1,17 +1,15 @@
+import { defineConfig, sharpImageService } from "astro/config";
 import react from "@astrojs/react";
-import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/serverless";
-import { defineConfig } from "astro/config";
 
-import image from "@astrojs/image";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    react(),
-    tailwind(),
-    image({ serviceEntryPoint: "@astrojs/image/sharp" }),
-  ],
-  output: "server",
-  adapter: vercel(),
+  experimental: {
+    assets: true,
+  },
+  image: {
+    service: sharpImageService(),
+  },
+  integrations: [react(), tailwind()],
 });

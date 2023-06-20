@@ -1,9 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import { Image } from "@astrojs/image/components";
-import Logo from "../../public/LogoCycles.webp";
+import Logo from "../assets/images/LogoCycles.webp";
 ---
 
-<Layout title="Home">
-  <Image height={1080} width={1080} src={Logo} alt="Logo" format="webp" />
+<Layout title="Welcome to Astro.">
+  <Image src={Logo} alt="Logo" />
 </Layout>
