@@ -16,6 +16,7 @@
     "@types/react": "^18.2.13",
     "@types/react-dom": "^18.2.6",
     "astro": "^2.6.6",
+    "astro-icon": "^0.8.1",
     "framer-motion": "^10.12.16",
     "hamburger-react": "^2.5.0",
     "react": "^18.2.0",

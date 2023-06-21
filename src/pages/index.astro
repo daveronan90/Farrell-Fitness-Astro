@@ -1,9 +1,86 @@
 ---
+import { Icon } from "astro-icon";
 import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
 import Logo from "../assets/images/LogoCycles.webp";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <Image src={Logo} alt="Logo" />
+<Layout title="Farrell Fitness - Gym & Performance Center">
+  <div class="flex justify-center items-center">
+    <Image src={Logo} alt="Logo" />
+  </div>
+  <div
+    class="grid grid-cols-2 md:grid-cols-4 text-center text-gray-500 opacity-70"
+  >
+    <div
+      class="border-b border-r md:border-gray-900 border-gray-700 flex p-4 space-y-4 flex-col justify-center items-center"
+    >
+      <Icon name={"bench"} class="fill-gray-500 h-24" />
+      <div class="">4000kg weights</div>
+    </div>
+    <div
+      class="border-b md:border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
+    >
+      <Icon name={"cardio"} class="fill-gray-500 h-24" />
+      <div class="">+28 cardio equipment</div>
+    </div>
+    <div
+      class="border-b border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
+    >
+      <Icon name={"clean"} class="fill-gray-500 h-24" />
+      <div class="">sanitation</div>
+    </div>
+    <div
+      class="border-b md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
+    >
+      <Icon name={"college"} class="fill-gray-500 h-24" />
+      <div class="">professional staff</div>
+    </div>
+    <div
+      class="border-b border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
+    >
+      <Icon name={"gymequip"} class="fill-gray-500 h-24" />
+      <div class="">+20 weight machines</div>
+    </div>
+    <div
+      class="border-b md:border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
+    >
+      <Icon name={"kcal"} class="fill-gray-500 h-24" />
+      <div class="">personalized programs</div>
+    </div>
+    <div
+      class="border-b border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
+    >
+      <Icon name={"locker"} class="fill-gray-500 h-24" />
+      <div class="">lockers</div>
+    </div>
+    <div
+      class="border-b md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
+    >
+      <Icon name={"massage"} class="fill-gray-500 h-24" />
+      <div class="">sports massage</div>
+    </div>
+    <div
+      class="border-b border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center md:border-b-0"
+    >
+      <Icon name={"measure"} class="fill-gray-500 h-24" />
+      <div class="">measureable results</div>
+    </div>
+    <div
+      class="border-b md:border-b-0 md:border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
+    >
+      <Icon name={"privacy"} class="fill-gray-500 h-24" />
+      <div class="">changing rooms</div>
+    </div>
+    <div
+      class="border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
+    >
+      <Icon name={"shower"} class="fill-gray-500 h-24" />
+      <div class="">showers</div>
+    </div>
+    <div class="flex p-4 space-y-8 flex-col justify-center items-center">
+      <Icon name={"waist"} class="fill-gray-500 h-24" />
+      <div class="">full body conditioning</div>
+    </div>
+  </div>
 </Layout>
