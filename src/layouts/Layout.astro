@@ -26,9 +26,11 @@ const { title } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
+
   <body
     class="container mx-auto mt-4 max-w-5xl bg-slate-950 font-black uppercase tracking-widest text-white"
   >
@@ -51,5 +53,6 @@ const { title } = Astro.props;
     <div class="relative px-8 my-12 md:my-24">
       <slot />
     </div>
+    <script src="../js/main.js"></script>
   </body>
 </html>
