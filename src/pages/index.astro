@@ -4,123 +4,45 @@ import { Image } from "astro:assets";
 import Logo from "../assets/images/LogoCycles.webp";
 import Layout from "../layouts/Layout.astro";
 
-const currentYear = new Date().getFullYear();
+interface service {
+  icon: string;
+  description: string;
+}
+
+const services: service[] = [
+  { icon: "bench", description: "4000kg weights" },
+  { icon: "cardio", description: "+28 cardio equipment" },
+  { icon: "clean", description: "sanitation" },
+  { icon: "college", description: "professional staff" },
+  { icon: "gymequip", description: "+20 weight machines" },
+  { icon: "kcal", description: "personalized programs" },
+  { icon: "locker", description: "lockers" },
+  { icon: "massage", description: "sports massage" },
+  { icon: "measure", description: "measureable results" },
+  { icon: "privacy", description: "changing rooms" },
+  { icon: "shower", description: "private showers" },
+  { icon: "waist", description: "full body conditioning" },
+];
 ---
 
-<Layout title="Farrell Fitness - Gym & Performance Center">
-  <div data-aos="fade" data-aos-duration="500" class="flex justify-center items-center">
+<Layout title="Farrell Fitness | Gym & Performance Center">
+  <div data-aos="fade" class="flex justify-center items-center">
     <Image src={Logo} alt="Logo" />
   </div>
-  <div class="grid grid-cols-2 md:grid-cols-4 text-center opacity-70">
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="0"
-      class="border-b border-r md:border-gray-900 border-gray-700 flex p-4 space-y-4 flex-col justify-center items-center"
-    >
-      <Icon name={"bench"} class="fill-gray-500 h-24" />
-      <div class="">4000kg weights</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="100"
-      class="border-b md:border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
-    >
-      <Icon name={"cardio"} class="fill-gray-500 h-24" />
-      <div class="">+28 cardio equipment</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="200"
-      class="border-b border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
-    >
-      <Icon name={"clean"} class="fill-gray-500 h-24" />
-      <div class="">sanitation</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="300"
-      class="border-b md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
-    >
-      <Icon name={"college"} class="fill-gray-500 h-24" />
-      <div class="">professional staff</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="400"
-      class="border-b border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
-    >
-      <Icon name={"gymequip"} class="fill-gray-500 h-24" />
-      <div class="">+20 weight machines</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="500"
-      class="border-b md:border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
-    >
-      <Icon name={"kcal"} class="fill-gray-500 h-24" />
-      <div class="">personalized programs</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="600"
-      class="border-b border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
-    >
-      <Icon name={"locker"} class="fill-gray-500 h-24" />
-      <div class="">lockers</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="700"
-      class="border-b md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
-    >
-      <Icon name={"massage"} class="fill-gray-500 h-24" />
-      <div class="">sports massage</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="800"
-      class="border-b border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center md:border-b-0"
-    >
-      <Icon name={"measure"} class="fill-gray-500 h-24" />
-      <div class="">measureable results</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="900"
-      class="border-b md:border-b-0 md:border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
-    >
-      <Icon name={"privacy"} class="fill-gray-500 h-24" />
-      <div class="">changing rooms</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="1000"
-      class="border-r md:border-gray-900 border-gray-700 flex p-4 space-y-8 flex-col justify-center items-center"
-    >
-      <Icon name={"shower"} class="fill-gray-500 h-24" />
-      <div class="">showers</div>
-    </div>
-    <div
-      data-aos="fade-zoom-in"
-      data-aos-duration="500"
-      data-aos-delay="1100"
-      class="flex p-4 space-y-8 flex-col justify-center items-center"
-    >
-      <Icon name={"waist"} class="fill-gray-500 h-24" />
-      <div class="">full body conditioning</div>
-    </div>
-  </div>
+  <ul class="flex flex-wrap">
+    {
+      services.map(({ icon, description }) => (
+        <li
+          data-aos="fade-zoom-in"
+          data-aos-delay="0"
+          class="flex p-4 space-y-4 flex-col justify-center items-center text-center w-1/2 md:w-1/4"
+        >
+          <Icon name={icon} class="fill-gray-500 h-24" />
+          <div class="">{description}</div>
+        </li>
+      ))
+    }
+  </ul>
 
   <section class="body-font relative">
     <div class="py-24 mx-auto flex sm:flex-nowrap flex-wrap">
@@ -138,22 +60,18 @@ const currentYear = new Date().getFullYear();
           class="bg-white relative flex flex-wrap py-6 rounded shadow-md text-gray-950"
         >
           <div class="lg:w-1/2 px-6">
-            <h2 class="title-font font-semibold tracking-widest text-xs">
+            <h2 class="title-font font-semibold text-xs">
               Farrell Fitness 27, Woodbine Business Park, New Ross, Co. Wexford
             </h2>
             <p class="mt-1">Gym & Fitness Center</p>
           </div>
           <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
-            <h2 class="title-font font-semibold tracking-widest text-xs">
-              EMAIL
-            </h2>
-            <a class="text-orange-600 leading-relaxed md:text-xs text-xxs"
-              >info.farrellfitness@gmail.com</a
+            <h2 class="title-font font-semibold text-xs pr-4">EMAIL</h2>
+            <a class="text-orange-600 md:text-xs text-xxs"
+              >info.farrellfitness<br class="hidden md:block" />@gmail.com</a
             >
-            <h2 class="title-font font-semibold tracking-widest text-xs mt-4">
-              Phone
-            </h2>
-            <p class="leading-relaxed">087 775 9716</p>
+            <h2 class="title-font font-semibold text-xs mt-4">Phone</h2>
+            <p class="">087 775 9716</p>
           </div>
         </div>
       </div>
@@ -161,35 +79,37 @@ const currentYear = new Date().getFullYear();
         data-aos="fade-left"
         class="lg:w-1/3 md:w-1/2 flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0"
       >
-        <h2 class="text-lg mb-1 font-medium title-font">Contact us</h2>
-        <p class="leading-relaxed mb-">
+        <h2 class="text-lg mb-1 font-medium title-font text-orange-500">
+          Contact us
+        </h2>
+        <p class="mb-">
           to find out more about what we have to offer and how we can help you
           start your fitness journey
         </p>
         <div class="relative mb-4">
-          <label for="name" class="leading-7 text-sm">Name</label>
+          <label for="name" class="text-sm">Name</label>
           <input
             type="text"
             id="name"
             name="name"
-            class="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            class="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none py-1 px-3 transition-colors duration-200 ease-in-out"
           />
         </div>
         <div class="relative mb-4">
-          <label for="email" class="leading-7 text-sm">Email</label>
+          <label for="email" class="text-sm">Email</label>
           <input
             type="email"
             id="email"
             name="email"
-            class="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            class="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 text-base outline-none py-1 px-3 transition-colors duration-200 ease-in-out"
           />
         </div>
         <div class="relative mb-4">
-          <label for="message" class="leading-7 text-sm">Message</label>
+          <label for="message" class="text-sm">Message</label>
           <textarea
             id="message"
             name="message"
-            class="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 h-32 text-base outline-none py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+            class="w-full bg-white rounded border border-gray-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200 h-32 text-base outline-none py-1 px-3 resize-none transition-colors duration-200 ease-in-out"
           ></textarea>
         </div>
         <button
@@ -199,87 +119,4 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
   </section>
-
-  <footer class="body-font">
-    <div class="flex items-center sm:flex-row flex-col">
-      <Image src={Logo} alt="Logo" class="w-2/6 md:w-1/12" />
-
-      <span class="ml-3 text-xl">Farrell Fitness</span>
-      <p
-        class="text-sm sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4"
-      >
-        {currentYear}© —
-        <a
-          href="https://twitter.com/knyttneve"
-          class="ml-1"
-          rel="noopener noreferrer"
-          target="_blank">daveronan90@gmail.com</a
-        >
-      </p>
-      <span
-        class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start"
-      >
-        <a class="">
-          <svg
-            fill="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="w-5 h-5"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
-            ></path>
-          </svg>
-        </a>
-        <a class="ml-3">
-          <svg
-            fill="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="w-5 h-5"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"
-            ></path>
-          </svg>
-        </a>
-        <a class="ml-3">
-          <svg
-            fill="none"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            class="w-5 h-5"
-            viewBox="0 0 24 24"
-          >
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"
-            ></path>
-          </svg>
-        </a>
-        <a class="ml-3">
-          <svg
-            fill="currentColor"
-            stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="0"
-            class="w-5 h-5"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke="none"
-              d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-            ></path>
-            <circle cx="4" cy="4" r="2" stroke="none"></circle>
-          </svg>
-        </a>
-      </span>
-    </div>
-  </footer>
 </Layout>
