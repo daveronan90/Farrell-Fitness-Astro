@@ -7,7 +7,7 @@ export default function Nav() {
   const [toggled, setToggled] = useState(false);
 
   return (
-    <nav className="flex items-center justify-between">
+    <nav className="flex items-center justify-between my-4 md:my-8">
       <a className="relative z-50" href="/">
         <TextLogo />
       </a>

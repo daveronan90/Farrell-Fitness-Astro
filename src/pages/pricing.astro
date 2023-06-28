@@ -3,22 +3,23 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Farrell Fitness | Membership">
-  <section class="body-font mb-12">
-    <div class="py-12">
+  <section class="">
+    <div class="">
       <div class="flex w-full flex-col text-center">
-        <h1
-          class="title-font mb-2 text-3xl font-medium text-orange-600 sm:text-4xl"
-        >
+        <h1 class="title-font mb-2 text-3xl font-medium sm:text-4xl">
           Price List
         </h1>
       </div>
-      <div class="mx-auto w-full overflow-auto lg:w-2/3">
+
+      <div class="mx-auto w-full overflow-auto">
         <table
-          class="whitespace-no-wrap w-full table-auto text-center text-xxs md:text-xs"
+          class="whitespace-no-wrap w-full table-auto text-center text-xxs md:text-lg"
         >
           <tbody class="text-left font-light">
             <tr
-              ><td colspan="4" class="py-4 text-left text-base font-medium"
+              ><td
+                colspan="4"
+                class="py-4 text-left text-base md:text-2xl font-medium"
                 >Classes</td
               ></tr
             >
@@ -43,7 +44,9 @@ import Layout from "../layouts/Layout.astro";
               <td class="px-4 py-3">€15</td>
             </tr>
             <tr
-              ><td colspan="4" class="py-4 text-left text-base font-medium"
+              ><td
+                colspan="4"
+                class="py-4 text-left text-base md:text-2xl font-medium"
                 >Open Gym</td
               ></tr
             >
@@ -98,7 +101,9 @@ import Layout from "../layouts/Layout.astro";
               <td class="px-4 py-3">€360</td>
             </tr>
             <tr
-              ><td colspan="4" class="py-4 text-left text-base font-medium"
+              ><td
+                colspan="4"
+                class="py-4 text-left text-base md:text-2xl font-medium"
                 >Personal Training</td
               ></tr
             >
@@ -125,7 +130,9 @@ import Layout from "../layouts/Layout.astro";
               <td class="px-4 py-3">€50</td>
             </tr>
             <tr
-              ><td colspan="4" class="py-4 text-left text-base font-medium"
+              ><td
+                colspan="4"
+                class="py-4 text-left text-base md:text-2xl font-medium"
                 >Gym & Programming</td
               ></tr
             >
@@ -147,7 +154,9 @@ import Layout from "../layouts/Layout.astro";
               <td class="px-4 py-3">€100</td>
             </tr>
             <tr
-              ><td colspan="4" class="py-4 text-left text-base font-medium"
+              ><td
+                colspan="4"
+                class="py-4 text-left text-base md:text-2xl font-medium"
                 >Combo Personal Training & Program with Gym</td
               ></tr
             >
@@ -167,12 +176,19 @@ import Layout from "../layouts/Layout.astro";
               <td class="px-4 py-3">€120</td>
             </tr>
             <tr>
+              <td class="h-[0.2px] bg-gray-200 w-full"></td>
+              <td class="h-[0.2px] bg-gray-200 w-full"></td>
+              <td class="h-[0.2px] bg-gray-200 w-full"></td>
+            </tr>
+            <tr>
               <td class="px-4 py-3"></td>
               <td class="px-4 py-3"></td>
               <td class="px-4 py-3">€499</td>
             </tr>
             <tr
-              ><td colspan="4" class="py-4 text-left text-base font-medium"
+              ><td
+                colspan="4"
+                class="py-4 text-left text-base md:text-2xl font-medium"
                 >Sports Massage</td
               ></tr
             >
@@ -187,7 +203,9 @@ import Layout from "../layouts/Layout.astro";
               <td class="px-4 py-3">€50</td>
             </tr>
             <tr
-              ><td colspan="4" class="py-4 text-left text-base font-medium"
+              ><td
+                colspan="4"
+                class="py-4 text-left text-base md:text-2xl font-medium"
                 >Styku 3D Body Scan</td
               ></tr
             >
@@ -205,7 +223,7 @@ import Layout from "../layouts/Layout.astro";
         </table>
       </div>
     </div>
-    <div class="mx-auto mt-4 flex w-full pl-4 lg:w-2/3">
+    <div class="mx-auto mt-4 flex w-full pl-4">
       <button
         class="ml-auto flex rounded border-0 bg-orange-600 px-6 py-2 text-white hover:bg-orange-900 focus:outline-none"
         >Sign up</button
