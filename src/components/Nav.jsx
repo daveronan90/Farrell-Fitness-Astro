@@ -38,7 +38,7 @@ export default function Nav() {
           </motion.div>
         )}
       </div>
-      <div className="md:flex hidden w-full justify-end items-center text-xl relative z-20 space-x-6">
+      <div className="md:flex hidden w-full justify-end items-center text-lg relative z-20 space-x-6">
         <a className="hover:text-orange-800" href="/">
           home
         </a>

@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -6,32 +7,40 @@ import Layout from "../layouts/Layout.astro";
   <section class="">
     <div class="">
       <div class="flex flex-col">
-
         <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
           <h1 class="sm:w-2/5 font-medium title-font text-2xl mb-2 sm:mb-0">
-            Space The Final Frontier
+            Classes and team training
           </h1>
-          <p class="sm:w-3/5 leading-relaxed text-base sm:pl-10 pl-0">
-            Street art subway tile salvia four dollar toast bitters selfies
-            quinoa yuccie synth meditation iPhone intelligentsia prism tofu.
-            Viral gochujang bitters dreamcatcher.
+          <p class="sm:w-3/5 leading-relaxed text-xs font-normal sm:pl-10 pl-0">
+            Join our gym and get fit with our strength and conditioning classes!
+            Our team-based classes are designed to help you build muscle and
+            strengthen your fundamental movement patterns. Our coaches will
+            teach you a variety of strength training movements and show you how
+            to perform each one with perfect form. We also offer strength-only
+            classes for those who want to focus on building muscle. Come join us
+            today!
           </p>
         </div>
       </div>
       <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
         <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
           <div class="rounded-lg h-64 overflow-hidden">
-            <img
+            <Image
+              width={1200}
+              height={500}
               alt="content"
               class="object-cover object-center h-full w-full"
-              src="https://dummyimage.com/1203x503"
+              src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
             />
           </div>
-          <h2 class="text-xl font-medium title-font mt-5">Shooting Stars</h2>
-          <p class="text-base leading-relaxed mt-2">
-            Swag shoivdigoitch literally meditation subway tile tumblr
-            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-            ethical XOXO lumbersexual.
+          <h2 class="text-xl font-medium title-font mt-5">
+            Strength and Conditioning Class
+          </h2>
+          <p class="text-xs font-normal leading-relaxed mt-2">
+            Build strength, improve endurance, and enhance athletic performance
+            in our dynamic Strength and Conditioning class. Led by experienced
+            trainers, it combines weightlifting, functional movements, and
+            high-intensity exercises for maximum results.
           </p>
           <a class="text-orange-600 inline-flex items-center mt-3"
             >Learn More
@@ -50,17 +59,22 @@ import Layout from "../layouts/Layout.astro";
         </div>
         <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
           <div class="rounded-lg h-64 overflow-hidden">
-            <img
+            <Image
+              width={1200}
+              height={500}
               alt="content"
               class="object-cover object-center h-full w-full"
-              src="https://dummyimage.com/1204x504"
+              src="https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=400"
             />
           </div>
-          <h2 class="text-xl font-medium title-font mt-5">The Catalyzer</h2>
-          <p class="text-base leading-relaxed mt-2">
-            Swag shoivdigoitch literally meditation subway tile tumblr
-            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-            ethical XOXO lumbersexual.
+          <h2 class="text-xl font-medium title-font mt-5">
+            Strength Only Class
+          </h2>
+          <p class="text-xs font-normal leading-relaxed mt-2">
+            Focus on building raw strength, improving lifting techniques, and
+            gaining muscle mass in our dedicated Strength Only class. Compound
+            exercises like squats, deadlifts, and bench presses will target
+            major muscle groups, guided by knowledgeable trainers.
           </p>
           <a class="text-orange-600 inline-flex items-center mt-3"
             >Learn More
@@ -79,17 +93,23 @@ import Layout from "../layouts/Layout.astro";
         </div>
         <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
           <div class="rounded-lg h-64 overflow-hidden">
-            <img
+            <Image
+              width={1200}
+              height={500}
               alt="content"
               class="object-cover object-center h-full w-full"
-              src="https://dummyimage.com/1205x505"
+              src="https://images.pexels.com/photos/3856026/pexels-photo-3856026.jpeg?auto=compress&cs=tinysrgb&w=400"
             />
           </div>
-          <h2 class="text-xl font-medium title-font mt-5">The 400 Blows</h2>
-          <p class="text-base leading-relaxed mt-2">
-            Swag shoivdigoitch literally meditation subway tile tumblr
-            cold-pressed. Gastropub street art beard dreamcatcher neutra,
-            ethical XOXO lumbersexual.
+          <h2 class="text-xl font-medium title-font mt-5">
+            Sports Team Training
+          </h2>
+          <p class="text-xs font-normal leading-relaxed mt-2">
+            Boost performance, teamwork, and competitiveness with our customized
+            Team Training program. Our experienced coaches tailor sessions to
+            your sport, combining sport-specific drills, strength and
+            conditioning, and teamwork challenges for peak on-field performance.
+            Unleash your team's full potential!
           </p>
           <a class="text-orange-600 inline-flex items-center mt-3"
             >Learn More
