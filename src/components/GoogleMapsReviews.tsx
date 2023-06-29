@@ -115,7 +115,8 @@ const GoogleMapsReviews: React.FC = () => {
         const response = await fetch(
           `https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJ57zwmbi2QkgRVTALYHxr62g&fields=reviews&key=${
             import.meta.env.PUBLIC_MAPS_API_KEY
-          }`
+          }`,
+          { mode: "no-cors" }
         );
 
         if (!response.ok) {
@@ -128,7 +129,7 @@ const GoogleMapsReviews: React.FC = () => {
         // Use the retrieved reviews here, for example:
         setReviews(reviews);
       } catch (error) {
-        console.log("Could not fetech Reviews");
+        console.log("Unable to fetch reviews.");
       }
     };
     getReviews();
@@ -157,17 +158,20 @@ const GoogleMapsReviews: React.FC = () => {
                     {review.author_name}
                   </h2>
                   <p className="text-orange-500 flex items-center justify-center">
-                    {Array.from({ length: review.rating }, () => 1).map(() => (
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="gold"
-                        width="24"
-                        height="24"
-                      >
-                        <path d="M12 17.27l-6.16 3.75 1.64-7.14L2.34 9.12l7.19-.62L12 2l2.47 6.5 7.19.62-5.14 4.76 1.64 7.14L12 17.27z" />
-                      </svg>
-                    ))}
+                    {Array.from({ length: review.rating }, () => 1).map(
+                      (_, index) => (
+                        <svg
+                          key={index}
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="gold"
+                          width="24"
+                          height="24"
+                        >
+                          <path d="M12 17.27l-6.16 3.75 1.64-7.14L2.34 9.12l7.19-.62L12 2l2.47 6.5 7.19.62-5.14 4.76 1.64 7.14L12 17.27z" />
+                        </svg>
+                      )
+                    )}
                   </p>
                 </div>
               </div>
