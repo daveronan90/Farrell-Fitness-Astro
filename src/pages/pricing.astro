@@ -1,9 +1,11 @@
 ---
+import VideoPlayer from "../components/VideoPlayer";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Farrell Fitness | Membership">
   <section class="">
+    <VideoPlayer client:visible videoPath="/src/assets/videos/mainVideo.mp4"/>
     <div class="">
       <div class="flex w-full flex-col text-center">
         <h1 class="title-font mb-2 text-3xl font-medium sm:text-4xl">
