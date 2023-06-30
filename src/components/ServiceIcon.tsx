@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 interface ServiceIconProps {
@@ -18,7 +18,7 @@ export default function ServiceIcon({
       className="flex p-4 text-gray-500 space-y-4 flex-col justify-center items-center text-center w-1/2 md:w-1/4 hover:text-orange-600 hover:cursor-pointer"
       onClick={() => setToggle((prev) => !prev)}
     >
-      <img src={`/src/icons/${icon}.svg`} alt={icon} className="h-24" />
+      <img src={`/icons/${icon}.svg`} alt={icon} className="h-24" />
       <div className="">{description}</div>
       {toggle && (
         <motion.div
