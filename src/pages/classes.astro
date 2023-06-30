@@ -2,142 +2,77 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import VideoPlayer from "../components/VideoPlayer";
+import PageLayout from "../layouts/PageLayout.astro";
+
+type Class = {
+  title: string;
+  excerpt: string;
+  url: string;
+};
+
+const classes: Class[] = [
+  {
+    title: "classes and team training",
+    excerpt:
+      "Build muscle, improve movement patterns in our team-based strength and conditioning classes. Get expert guidance and form correction from our coaches. Join us today for a fitter you!",
+    url: "https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg?auto=compress&cs=tinysrgb&",
+  },
+  {
+    title: "strength classes",
+    excerpt:
+      "Gain raw strength and muscle mass in our dedicated Strength Only class. Target major muscle groups with compound exercises like squats, deadlifts, and bench presses, guided by knowledgeable trainers for proper technique and results.",
+    url: "https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb",
+  },
+  {
+    title: "sports team training",
+    excerpt:
+      "Maximize performance with our customized Team Training program. Our experienced coaches tailor sessions to your sport, combining sport-specific drills, strength training, and teamwork challenges for peak on-field performance. Unleash your team's full potential!",
+    url: "https://images.pexels.com/photos/3856026/pexels-photo-3856026.jpeg?auto=compress&cs=tinysrgb",
+  },
+];
 ---
 
-<Layout title="Farrell Fitness | Classes">
-  <section class="">
-    <VideoPlayer
-      client:visible
-      videoPath="/videos/classesVideo.mp4"
-    />
-    <div class="">
-      <div class="flex flex-col">
-        <div class="flex flex-wrap sm:flex-row flex-col py-6 mb-12">
-          <h1 class="sm:w-2/5 font-medium title-font text-2xl mb-2 sm:mb-0">
-            Classes and team training
-          </h1>
-          <p class="sm:w-3/5 leading-relaxed text-xs font-normal sm:pl-10 pl-0">
-            Join our gym and get fit with our strength and conditioning classes!
-            Our team-based classes are designed to help you build muscle and
-            strengthen your fundamental movement patterns. Our coaches will
-            teach you a variety of strength training movements and show you how
-            to perform each one with perfect form. We also offer strength-only
-            classes for those who want to focus on building muscle. Come join us
-            today!
-          </p>
-        </div>
-      </div>
-      <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
-        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-          <div class="rounded-lg h-64 overflow-hidden">
-            <Image
-              width={1200}
-              height={500}
-              alt="content"
-              class="object-cover object-center h-full w-full"
-              src="https://images.pexels.com/photos/1552249/pexels-photo-1552249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-            />
-          </div>
-          <h2 class="text-xl font-medium title-font mt-5">
-            Strength and Conditioning Class
-          </h2>
-          <p class="text-xs font-normal leading-relaxed mt-2">
-            Build strength, improve endurance, and enhance athletic performance
-            in our dynamic Strength and Conditioning class. Led by experienced
-            trainers, it combines weightlifting, functional movements, and
-            high-intensity exercises for maximum results.
-          </p>
-          <a
-            href="https://legitfit.com/authenticate/signup/FarrellFitness"
-            class="text-orange-600 inline-flex items-center mt-3 hover:text-orange-800"
-            >Learn More
-            <svg
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              class="w-4 h-4 ml-2"
-              viewBox="0 0 24 24"
+<Layout title="Classes">
+  <PageLayout
+    title="classes & team training"
+    summary="Build muscle, improve movement patterns in our team-based strength and conditioning classes. Get expert guidance and form correction from our coaches."
+    videoPath="/videos/classesVideo.mp4"
+  >
+    <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+      {
+        classes.map(({ title, excerpt, url }) => (
+          <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+            <div class="rounded-lg h-64 overflow-hidden">
+              <Image
+                width={900}
+                height={600}
+                alt="content"
+                class="object-cover object-center h-full w-full"
+                src={url}
+              />
+            </div>
+            <h2 class="mt-5 text-lg font-bold text-orange-600">{title}</h2>
+            <p class="text-sm mt-2">{excerpt}</p>
+            <a
+              href="https://legitfit.com/authenticate/signup/FarrellFitness"
+              class="text-orange-600 inline-flex items-center mt-3 hover:text-orange-800"
             >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-          <div class="rounded-lg h-64 overflow-hidden">
-            <Image
-              width={1200}
-              height={500}
-              alt="content"
-              class="object-cover object-center h-full w-full"
-              src="https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg?auto=compress&cs=tinysrgb&w=400"
-            />
+              sign up
+              <svg
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                class="w-4 h-4 ml-2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
-          <h2 class="text-xl font-medium title-font mt-5">
-            Strength Only Class
-          </h2>
-          <p class="text-xs font-normal leading-relaxed mt-2">
-            Focus on building raw strength, improving lifting techniques, and
-            gaining muscle mass in our dedicated Strength Only class. Compound
-            exercises like squats, deadlifts, and bench presses will target
-            major muscle groups, guided by knowledgeable trainers.
-          </p>
-          <a
-            href="https://legitfit.com/authenticate/signup/FarrellFitness"
-            class="text-orange-600 inline-flex items-center mt-3 hover:text-orange-800"
-            >Learn More
-            <svg
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              class="w-4 h-4 ml-2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-        <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-          <div class="rounded-lg h-64 overflow-hidden">
-            <Image
-              width={1200}
-              height={500}
-              alt="content"
-              class="object-cover object-center h-full w-full"
-              src="https://images.pexels.com/photos/3856026/pexels-photo-3856026.jpeg?auto=compress&cs=tinysrgb&w=400"
-            />
-          </div>
-          <h2 class="text-xl font-medium title-font mt-5">
-            Sports Team Training
-          </h2>
-          <p class="text-xs font-normal leading-relaxed mt-2">
-            Boost performance, teamwork, and competitiveness with our customized
-            Team Training program. Our experienced coaches tailor sessions to
-            your sport, combining sport-specific drills, strength and
-            conditioning, and teamwork challenges for peak on-field performance.
-            Unleash your team's full potential!
-          </p>
-          <a
-            href="https://legitfit.com/authenticate/signup/FarrellFitness"
-            class="text-orange-600 inline-flex items-center mt-3 hover:text-orange-800"
-            >Learn More
-            <svg
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              class="w-4 h-4 ml-2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
+        ))
+      }
     </div>
-  </section>
+  </PageLayout>
 </Layout>

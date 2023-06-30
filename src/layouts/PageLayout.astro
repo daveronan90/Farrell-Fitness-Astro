@@ -1,0 +1,24 @@
+---
+import VideoPlayer from "../components/VideoPlayer";
+
+export interface Props {
+  videoPath: string;
+  title: string;
+  summary: string;
+}
+
+const { videoPath, title, summary } = Astro.props;
+---
+
+<section>
+  <VideoPlayer videoPath={videoPath} />
+  <div class="flex flex-wrap w-full md:mb-20 mb-10">
+    <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+      <h1 class="sm:text-3xl text-2xl mb-2">{title}</h1>
+    </div>
+    <p class="lg:w-1/2 w-full">
+      {summary}
+    </p>
+  </div>
+  <slot />
+</section>

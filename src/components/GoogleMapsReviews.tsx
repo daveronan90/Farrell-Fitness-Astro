@@ -154,7 +154,7 @@ const GoogleMapsReviews: React.FC = () => {
                     </p>
                   </a>
                   <span className="inline-block h-1 w-10 rounded bg-orange-500 mt-6 mb-4"></span>
-                  <h2 className="text-orange-900 font-medium title-font tracking-wider text-sm">
+                  <h2 className="text-orange-600 font-bold title-font tracking-wider text-sm">
                     {review.author_name}
                   </h2>
                   <p className="text-orange-500 flex items-center justify-center">
