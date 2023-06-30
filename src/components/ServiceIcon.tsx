@@ -24,7 +24,7 @@ export default function ServiceIcon({
         <motion.div
           initial={{ scale: 0, x: -100 }}
           animate={{ scale: 1, x: 0 }}
-          className="fixed inset-0 flex items-center justify-center"
+          className="fixed z-50 inset-0 flex items-center justify-center"
         >
           <img src={url} alt="image" />
         </motion.div>
