@@ -1,11 +1,11 @@
 export default function FF() {
   return (
-    <div className="h-full w-full flex flex-col justify-around items-center md:space-y-48 space-y-24 py-24 ">
+    <div className="h-full w-full flex flex-col justify-around items-center md:space-y-48 space-y-12 md:-mb-24 my-24 md:py-48">
       <svg
         width="306"
         height="204"
         fill="none"
-        className="md:scale-150"
+        className="md:scale-[2.5]"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
