@@ -14,7 +14,17 @@ const { videoPath, title, summary } = Astro.props;
   <VideoPlayer videoPath={videoPath} />
   <div class="flex flex-wrap w-full md:mb-20 mb-10">
     <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-      <h1 class="sm:text-3xl text-2xl mb-2">{title}</h1>
+      <h1 class="sm:text-3xl text-2xl mb-2">
+        <div class="flex flex-wrap space-x-1">
+          {
+            title
+              .split(" ")
+              .map((word, index) => (
+                <span class={index === 0 ? "text-orange-600" : ""}>{word}</span>
+              ))
+          }
+        </div>
+      </h1>
     </div>
     <p class="lg:w-1/2 w-full">
       {summary}

@@ -6,7 +6,7 @@ export default function FFTextLogo() {
       viewBox="0 0 317 49"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="md:scale-100 scale-75"
+      className="lg:scale-100 scale-75"
     >
       <path
         d="M7.00122 7.03018L12.3498 14.6071H23.2679V17.0993H14.1092L19.1613 24.2563H22.6526V29.2019L31.3343 41.5V7.0307L7.00122 7.03018ZM32.2227 7.03018V41.4995L40.9044 29.2014V24.2558H44.3956L49.4478 17.0988H40.2891V14.6066H51.2072L56.5558 7.02972L32.2227 7.03018Z"
