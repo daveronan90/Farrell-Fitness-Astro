@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import VideoPlayer from "../components/VideoPlayer";
 import PageLayout from "../layouts/PageLayout.astro";
+import ClassTimetable from "../components/ClassTimetable.astro";
 
 type Class = {
   title: string;
@@ -38,6 +39,8 @@ const classes: Class[] = [
     summary="Build muscle, improve movement patterns in our team-based strength and conditioning classes. Get expert guidance and form correction from our coaches."
     videoPath="/videos/classesVideo.mp4"
   >
+    <ClassTimetable />
+
     <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
       {
         classes.map(({ title, excerpt, url }) => (
