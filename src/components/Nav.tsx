@@ -30,6 +30,7 @@ const headings: Heading[] = [
     url: "results",
   },
   { name: "team", url: "team" },
+  { name: "gear", url: "merch" },
 ];
 
 export default function Nav() {
@@ -64,7 +65,7 @@ export default function Nav() {
           </motion.div>
         )}
       </div>
-      <div className="lg:flex hidden w-full justify-end items-center text-lg relative z-20 space-x-6">
+      <div className="lg:flex hidden w-full justify-end items-center relative z-20 space-x-6">
         {headings.map(({ name, url }, index) => (
           <a className="hover:text-orange-800" href={`/${url}`} key={index}>
             {name}
