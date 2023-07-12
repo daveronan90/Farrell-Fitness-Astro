@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # test
 src/pages/test.astro
+
+# credentials
+credentials.json

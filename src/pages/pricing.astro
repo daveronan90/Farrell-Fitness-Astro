@@ -1,226 +1,164 @@
 ---
-import VideoPlayer from "../components/VideoPlayer";
+import googleSheets from "../js/googleSheets";
 import Layout from "../layouts/Layout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+
+const defaultPriceList = [
+  {
+    category: "classes",
+    service: [
+      { desc: "8 classes", duration: "1 month", price: "TBD" },
+      { desc: "12 classes", duration: "1 month", price: "TBD" },
+      { desc: "classes & gym", duration: "1 month", price: "TBD" },
+      { desc: "class", duration: "1 day", price: "TBD" },
+    ],
+  },
+  {
+    category: "open gym",
+    service: [
+      { desc: "gym", duration: "1 month", price: "TBD" },
+      { desc: "gym", duration: "3 months", price: "TBD" },
+      { desc: "gym", duration: "6 months", price: "TBD" },
+      { desc: "gym", duration: "1 year", price: "TBD" },
+      { desc: "gym", duration: "1 day", price: "TBD" },
+      { desc: "gym", duration: "1 week", price: "TBD" },
+      { desc: "gym (student)", duration: "1 month", price: "TBD" },
+      { desc: "gym (student)", duration: "3 months", price: "TBD" },
+      { desc: "gym (student)", duration: "6 months", price: "TBD" },
+      { desc: "gym (student)", duration: "1 year", price: "TBD" },
+    ],
+  },
+  {
+    category: "personal training",
+    service: [
+      { desc: "personal training", duration: "1 session", price: "TBD" },
+      {
+        desc: "personal training 1 week",
+        duration: "2 sessions",
+        price: "TBD",
+      },
+      {
+        desc: "personal training 5 week block",
+        duration: "10 sessions",
+        price: "TBD",
+      },
+      {
+        desc: "semi personal training 2 people",
+        duration: "1 session",
+        price: "TBD",
+      },
+    ],
+  },
+  {
+    category: "gym & programming",
+    service: [
+      { desc: "gym & program", duration: "1 month", price: "TBD" },
+      { desc: "gym & program", duration: "3 months", price: "TBD" },
+      {
+        desc: "consulation",
+        duration: "body scan mobility screen strength test",
+        price: "TBD",
+      },
+    ],
+  },
+  {
+    category: "sports message",
+    service: [
+      { desc: "sports massage (non member)", duration: "", price: "TBD" },
+      { desc: "sports massage (member)", duration: "", price: "TBD" },
+    ],
+  },
+  {
+    category: "styku 3d body scan",
+    service: [
+      { desc: "styku body scan", duration: "", price: "TBD" },
+      { desc: "styku body scan (student)", duration: "", price: "TBD" },
+    ],
+  },
+  {
+    category: "pt & gym program",
+    service: [
+      { desc: "personal training", duration: "5 sessions", price: "TBD" },
+      { desc: "gym", duration: "3 months", price: "TBD" },
+      { desc: "program", duration: "3 months", price: "TBD" },
+      { desc: "", duration: "Total", price: "TBD" },
+    ],
+  },
+];
+
+const getData = async () => {
+  const data = await googleSheets("PriceList");
+
+  if (data) {
+    const headers = await data[0];
+    const result = await data.slice(1).reduce((acc, row) => {
+      const [category, ...serviceProps] = row;
+      const existingCategory = acc.find((item) => item.category === category);
+      if (existingCategory) {
+        existingCategory.service.push(
+          Object.fromEntries(
+            headers
+              .slice(1)
+              .map((header, index) => [header, serviceProps[index]])
+          )
+        );
+      } else {
+        acc.push({
+          category,
+          service: [
+            Object.fromEntries(
+              headers
+                .slice(1)
+                .map((header, index) => [header, serviceProps[index]])
+            ),
+          ],
+        });
+      }
+      return acc;
+    }, []);
+    return result;
+  }
+  return defaultPriceList;
+};
+
+const priceList = await getData();
 ---
 
 <Layout title="Membership">
-  <section class="">
-    <VideoPlayer client:visible videoPath="/videos/mainVideo.mp4"/>
+  <PageLayout
+    title="Price List"
+    summary="Explore our affordable price listing for a wide range of services and memberships at Farrell Fitness. From open gym access to personalized training programs, achieve your fitness goals without breaking the bank. Join us and start your fitness journey today!"
+    videoPath="/videos/mainVideo.mp4"
+  >
     <div class="">
-      <div class="flex w-full flex-col text-center">
-        <h1 class="title-font mb-2 text-3xl font-medium sm:text-4xl">
-          Price List
-        </h1>
-      </div>
-
       <div class="mx-auto w-full overflow-auto">
         <table
-          class="whitespace-no-wrap w-full table-auto text-center text-xxs md:text-lg"
+          class="whitespace-no-wrap w-full table-auto text-center text-xxs md:text-base"
         >
           <tbody class="text-left font-light">
-            <tr
-              ><td
-                colspan="4"
-                class="py-4 text-left text-base md:text-2xl font-medium"
-                >Classes</td
-              ></tr
-            >
-            <tr>
-              <td class="px-4 py-3 font-normal">8 Classes</td>
-              <td class="px-4 py-3 font-normal">1 month</td>
-              <td class="px-4 py-3 font-normal">€80</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">12 Classes</td>
-              <td class="px-4 py-3 font-normal">1 Month</td>
-              <td class="px-4 py-3 font-normal">€90</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Classes & GYM</td>
-              <td class="px-4 py-3 font-normal">1 Month</td>
-              <td class="px-4 py-3 font-normal">€90</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Class</td>
-              <td class="px-4 py-3 font-normal">1 Day</td>
-              <td class="px-4 py-3 font-normal">€15</td>
-            </tr>
-            <tr
-              ><td
-                colspan="4"
-                class="py-4 text-left text-base md:text-2xl font-medium"
-                >Open Gym</td
-              ></tr
-            >
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym</td>
-              <td class="px-4 py-3 font-normal">1 Month</td>
-              <td class="px-4 py-3 font-normal">€65</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym</td>
-              <td class="px-4 py-3 font-normal">3 Months</td>
-              <td class="px-4 py-3 font-normal">€179</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym</td>
-              <td class="px-4 py-3 font-normal">6 Months</td>
-              <td class="px-4 py-3 font-normal">€299</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym</td>
-              <td class="px-4 py-3 font-normal">1 Year</td>
-              <td class="px-4 py-3 font-normal">€549</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym</td>
-              <td class="px-4 py-3 font-normal">1 Day</td>
-              <td class="px-4 py-3 font-normal">€10</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym</td>
-              <td class="px-4 py-3 font-normal">1 Week</td>
-              <td class="px-4 py-3 font-normal">€30</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym (Student)</td>
-              <td class="px-4 py-3 font-normal">1 Month</td>
-              <td class="px-4 py-3 font-normal">€45</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym (Student)</td>
-              <td class="px-4 py-3 font-normal">3 Months</td>
-              <td class="px-4 py-3 font-normal">€120</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym (Student)</td>
-              <td class="px-4 py-3 font-normal">6 Months</td>
-              <td class="px-4 py-3 font-normal">€210</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym (Student)</td>
-              <td class="px-4 py-3 font-normal">1 Year</td>
-              <td class="px-4 py-3 font-normal">€360</td>
-            </tr>
-            <tr
-              ><td
-                colspan="4"
-                class="py-4 text-left text-base md:text-2xl font-medium"
-                >Personal Training</td
-              ></tr
-            >
-            <tr>
-              <td class="px-4 py-3 font-normal">Personal Training</td>
-              <td class="px-4 py-3 font-normal">1 Session</td>
-              <td class="px-4 py-3 font-normal">€40</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Personal Training 1 Week</td>
-              <td class="px-4 py-3 font-normal">2 Sessions</td>
-              <td class="px-4 py-3 font-normal">€120</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal"
-                >Personal Training <br />5 Week Block (2 per week)</td
-              >
-              <td class="px-4 py-3 font-normal">10 Sessions</td>
-              <td class="px-4 py-3 font-normal">€300</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Semi Personal Training <br /> 2 People</td>
-              <td class="px-4 py-3 font-normal">1 Session</td>
-              <td class="px-4 py-3 font-normal">€50</td>
-            </tr>
-            <tr
-              ><td
-                colspan="4"
-                class="py-4 text-left text-base md:text-2xl font-medium"
-                >Gym & Programming</td
-              ></tr
-            >
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym & Program</td>
-              <td class="px-4 py-3 font-normal">1 Month</td>
-              <td class="px-4 py-3 font-normal">€120</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym & Program</td>
-              <td class="px-4 py-3 font-normal">3 Months</td>
-              <td class="px-4 py-3 font-normal">€345</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Consultation ~ 2 Hours</td>
-              <td class="px-4 py-3 font-normal"
-                >Body Scan <br /> Mobility Screen <br /> Strength Test</td
-              >
-              <td class="px-4 py-3 font-normal">€100</td>
-            </tr>
-            <tr
-              ><td
-                colspan="4"
-                class="py-4 text-left text-base md:text-2xl font-medium"
-                >Combo Personal Training & Program with Gym</td
-              ></tr
-            >
-            <tr>
-              <td class="px-4 py-3 font-normal">Personal Training</td>
-              <td class="px-4 py-3 font-normal">5 Sessions</td>
-              <td class="px-4 py-3 font-normal">€200</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Gym</td>
-              <td class="px-4 py-3 font-normal">3 Months</td>
-              <td class="px-4 py-3 font-normal">€179</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Program</td>
-              <td class="px-4 py-3 font-normal">3 Months</td>
-              <td class="px-4 py-3 font-normal">€120</td>
-            </tr>
-            <tr>
-              <td class="h-[0.2px] bg-gray-200 w-full"></td>
-              <td class="h-[0.2px] bg-gray-200 w-full"></td>
-              <td class="h-[0.2px] bg-gray-200 w-full"></td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal"></td>
-              <td class="px-4 py-3 font-normal"></td>
-              <td class="px-4 py-3 font-normal">€499</td>
-            </tr>
-            <tr
-              ><td
-                colspan="4"
-                class="py-4 text-left text-base md:text-2xl font-medium"
-                >Sports Massage</td
-              ></tr
-            >
-            <tr>
-              <td class="px-4 py-3 font-normal">Sports Massage <br />(Non memeber)</td>
-              <td class="px-4 py-3 font-normal"></td>
-              <td class="px-4 py-3 font-normal">€60</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Sports Massage <br />(Memeber)</td>
-              <td class="px-4 py-3 font-normal"></td>
-              <td class="px-4 py-3 font-normal">€50</td>
-            </tr>
-            <tr
-              ><td
-                colspan="4"
-                class="py-4 text-left text-base md:text-2xl font-medium"
-                >Styku 3D Body Scan</td
-              ></tr
-            >
-            <tr>
-              <td class="px-4 py-3 font-normal">Styku Body Scan</td>
-              <td class="px-4 py-3 font-normal"></td>
-              <td class="px-4 py-3 font-normal">€30</td>
-            </tr>
-            <tr>
-              <td class="px-4 py-3 font-normal">Styku Body Scan <br />(Student)</td>
-              <td class="px-4 py-3 font-normal"></td>
-              <td class="px-4 py-3 font-normal">€20</td>
-            </tr>
+            {
+              priceList.map(({ category, service }) => (
+                <div>
+                  <tr>
+                    <td
+                      colspan="3"
+                      class="py-4 text-left text-base md:text-2xl font-medium"
+                    >
+                      {category}
+                    </td>
+                  </tr>
+                  {service.map(({ desc, duration, price }) => (
+                    <tr>
+                      <td class="px-4 py-3 font-normal">{desc}</td>
+                      <td class="px-4 py-3 font-normal text-right">
+                        {duration}
+                      </td>
+                      <td class="px-4 py-3 font-normal">€{price}</td>
+                    </tr>
+                  ))}
+                </div>
+              ))
+            }
           </tbody>
         </table>
       </div>
@@ -232,5 +170,5 @@ import Layout from "../layouts/Layout.astro";
         >Sign up</a
       >
     </div>
-  </section>
+  </PageLayout>
 </Layout>
