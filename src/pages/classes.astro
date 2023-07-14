@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import ClassTimetable from "../components/ClassTimetable.astro";
+import ClassTimetable from "../components/ClassTimetable";
 import Layout from "../layouts/Layout.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 
@@ -38,7 +38,7 @@ const classes: Class[] = [
     summary="Build muscle, improve movement patterns in our team-based strength and conditioning classes. Get expert guidance and form correction from our coaches."
     videoPath="/videos/classesVideo.mp4"
   >
-    <ClassTimetable />
+    <ClassTimetable client:load />
 
     <div class="flex flex-wrap">
       {
