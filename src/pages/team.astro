@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import { team } from "../js/teamData";
 import Layout from "../layouts/Layout.astro";
 import PageLayout from "../layouts/PageLayout.astro";
-import { team } from "../js/teamData";
 ---
 
 <Layout title="Team Members">
@@ -14,10 +14,7 @@ import { team } from "../js/teamData";
     <div class="flex flex-wrap text-base font-medium justify-center">
       {
         team.map(({ desc, name, position, url }, index) => (
-          <div
-            data-aos={`fade-${index % 2 !== 0 ? "left" : "right"}`}
-            class="p-4 lg:w-1/3"
-          >
+          <div class="p-4 lg:w-1/3">
             <div class="h-full flex flex-col items-center text-center">
               <Image
                 width={450}

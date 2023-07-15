@@ -1,37 +1,8 @@
 import { motion } from "framer-motion";
 import { Squash as Hamburger } from "hamburger-react";
 import { useState } from "react";
+import { headings } from "../js/NavLinks";
 import TextLogo from "./FFTextLogo";
-
-type Heading = {
-  name: String;
-  url: String;
-};
-
-const headings: Heading[] = [
-  {
-    name: "home",
-    url: "",
-  },
-  {
-    name: "membership",
-    url: "pricing",
-  },
-  {
-    name: "classes",
-    url: "classes",
-  },
-  {
-    name: "services",
-    url: "services",
-  },
-  {
-    name: "results",
-    url: "results",
-  },
-  { name: "team", url: "team" },
-  { name: "gear", url: "merch" },
-];
 
 export default function Nav() {
   const [toggled, setToggled] = useState(false);

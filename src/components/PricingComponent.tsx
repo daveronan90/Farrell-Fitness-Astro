@@ -1,34 +1,14 @@
-const offers = [
-  {
-    title: "Classes + Gym",
-    subTitle: "1 Month",
-    price: "90",
-    services: ["Open Gym", "Expert-led sessions", "Engaging groups"],
-  },
-  {
-    title: "Gym",
-    subTitle: "1 year",
-    price: "549",
-    services: ["Flexible hours", "Diverse equipment", "Spacious environment"],
-  },
-  {
-    title: "Gym + Program",
-    subTitle: "3 Months",
-    price: "345",
-    services: ["Gym Access", "Personal coaching", "Tailored workouts"],
-  },
-];
+import { offers } from "../js/OffersData";
 
 export default function PricingComponent() {
   return (
     <div className="flex md:flex-row flex-col gap-4">
-      {offers.map(({ title, subTitle, price, services }, index) => (
+      {offers.map(({ title, subTitle, price, benefits }, index) => (
         <div
           key={index}
           className={`${
             index === 1 ? "border-orange-600" : "border-gray-400"
           } w-full border rounded-lg py-6 px-6 text-gray-400 space-y-4 relative`}
-          data-aos="fade"
         >
           <div
             className={`${
@@ -49,9 +29,9 @@ export default function PricingComponent() {
             } h-[0.1rem] w-full rounded`}
           />
           <ul className="md:text-base text-sm font-light pb-10 space-y-2">
-            {services.map((service, index) => (
+            {benefits.map((benefit, index) => (
               <div key={index} className="flex items-center">
-                <li>{service}</li>
+                <li>{benefit}</li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
