@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { fetchData, stringToTimestamp } from "../js/airtable";
 import { defaultClasses } from "../js/classesData";
@@ -42,9 +43,19 @@ export default function ClassTimetable() {
   useEffect(() => {
     getData();
   }, []);
-
   return (
-    <div className="flex flex-col w-full justify-center items-start mb-12 md:mb-24">
+    <motion.div
+      initial={{
+        opacity: 0,
+        x: -100,
+      }}
+      whileInView={{
+        opacity: 1,
+        x: 0,
+      }}
+      transition={{ duration: 0.5,  }}
+      className="flex flex-col w-full justify-center items-start mb-12 md:mb-24"
+    >
       <div className="flex flex-col space-y-1 text-2xl md:text-3xl mb-3 md:mb-6">
         <h1>summer timetable</h1>
         <h2 className="text-xs md:text-base text-gray-500">
@@ -73,6 +84,6 @@ export default function ClassTimetable() {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

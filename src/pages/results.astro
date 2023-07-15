@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import Layout from "../layouts/Layout.astro";
 import GoogleMapsReviews from "../components/GoogleMapsReviews";
+import Layout from "../layouts/Layout.astro";
 import PageLayout from "../layouts/PageLayout.astro";
 
 function generateRandomIntegers() {
@@ -26,6 +26,7 @@ let randomNumbers = generateRandomIntegers();
       <div class="flex flex-wrap w-1/2">
         <div class="md:p-2 p-1 w-1/2">
           <Image
+            data-aos="fade-left"
             width={600}
             height={400}
             alt="gallery"
@@ -35,6 +36,7 @@ let randomNumbers = generateRandomIntegers();
         </div>
         <div class="md:p-2 p-1 w-1/2">
           <Image
+            data-aos="fade-right"
             width={600}
             height={400}
             alt="gallery"
@@ -44,6 +46,7 @@ let randomNumbers = generateRandomIntegers();
         </div>
         <div class="md:p-2 p-1 w-full">
           <Image
+            data-aos="fade-left"
             width={600}
             height={400}
             alt="gallery"
@@ -55,6 +58,7 @@ let randomNumbers = generateRandomIntegers();
       <div class="flex flex-wrap w-1/2">
         <div class="md:p-2 p-1 w-full">
           <Image
+            data-aos="fade-right"
             width={600}
             height={400}
             alt="gallery"
@@ -64,6 +68,7 @@ let randomNumbers = generateRandomIntegers();
         </div>
         <div class="md:p-2 p-1 w-1/2">
           <Image
+            data-aos="fade-left"
             width={600}
             height={400}
             alt="gallery"
@@ -73,6 +78,7 @@ let randomNumbers = generateRandomIntegers();
         </div>
         <div class="md:p-2 p-1 w-1/2">
           <Image
+            data-aos="fade-right"
             width={600}
             height={400}
             alt="gallery"
@@ -83,7 +89,7 @@ let randomNumbers = generateRandomIntegers();
       </div>
     </div>
   </PageLayout>
-  <h1 class="w-full text-center mt-12 text-2xl mb-4">Google Reviews</h1>
+  <div class="w-full text-center mt-12 text-2xl mb-4">Google Reviews</div>
   <div class="h-[0.1rem] bg-gray-100 relative">
     <div class="absolute h-full w-1/2 bg-orange-600"></div>
   </div>

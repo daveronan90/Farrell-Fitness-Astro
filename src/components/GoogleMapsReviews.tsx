@@ -1,6 +1,6 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { defaultReviews } from "../js/reviewsData";
-
 
 function reduceWords(string: string, limit: number) {
   const words = string.trim().split(" ");
@@ -17,16 +17,23 @@ function reduceWords(string: string, limit: number) {
 
 const GoogleMapsReviews = () => {
   const [reviews, setReviews] = useState(defaultReviews);
-
-  
-
   return (
     <div>
       <section className="my-12">
         <div className="">
           <div className="flex flex-wrap -m-4">
             {reviews.map((review, index) => (
-              <div key={index} className="lg:w-1/3 lg:mb-0 mb-6 p-4">
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  x: index % 2 === 0 ? -100 : 100,
+                  y: index % 2 === 0 ? -100 : 100,
+                }}
+                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                key={index}
+                className="lg:w-1/3 lg:mb-0 mb-6 p-4"
+              >
                 <div className="h-full text-center">
                   <img
                     alt="testimonial"
@@ -59,7 +66,7 @@ const GoogleMapsReviews = () => {
                     )}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

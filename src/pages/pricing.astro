@@ -1,12 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import PageLayout from "../layouts/PageLayout.astro";
 import Button from "../components/Button";
 import PriceList from "../components/PriceList";
-
-
-
-
+import Layout from "../layouts/Layout.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 ---
 
 <Layout title="Membership">
@@ -16,6 +12,6 @@ import PriceList from "../components/PriceList";
     videoPath="/videos/mainVideo.webm"
   >
     <PriceList client:load />
-    <Button text={"sign up"} />
+    <Button text="sign up" />
   </PageLayout>
 </Layout>

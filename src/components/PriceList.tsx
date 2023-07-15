@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { fetchData } from "../js/airtable";
 import { ServiceGroup, defaultPriceList } from "../js/pricingData";
-import { useState, useEffect } from "react";
 
 interface RawPricingData {
   category: string;
@@ -52,27 +53,30 @@ export default function PriceList() {
       return a.order - b.order;
     });
 
-    console.log(sortedGroupData);
-
     setPriceList(sortedGroupData);
   };
 
   useEffect(() => {
     getData();
   }, []);
-
   return (
     <div className="text-xxs md:text-base">
       <div className="font-light">
-        {priceList.map(({ category, services }, index) => (
-          <div key={index} className="w-full">
+        {priceList.map(({ category, services }, cIndex) => (
+          <div key={cIndex} className="w-full">
             <div>
               <div className="py-4 text-base md:text-2xl font-medium">
                 {category}
               </div>
             </div>
-            {services.map(({ desc, duration, price }, index) => (
-              <div key={index} className="w-full flex">
+            {services.map(({ desc, duration, price }, sIndex) => (
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: sIndex * 0.05 }}
+                key={sIndex}
+                className="w-full flex"
+              >
                 <div className="w-1/2 px-4 py-3 font-normal">{desc}</div>
                 <div className="flex w-1/2 text-end">
                   <div className="w-2/3 px-4 py-3 font-normal text-right">
@@ -80,7 +84,7 @@ export default function PriceList() {
                   </div>
                   <div className="w-1/3 px-4 py-3 font-normal">€{price}</div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         ))}

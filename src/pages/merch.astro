@@ -1,46 +1,9 @@
 ---
 import { Image } from "astro:assets";
+import { items } from "../js/merchandiseData";
 import Layout from "../layouts/Layout.astro";
 import PageLayout from "../layouts/PageLayout.astro";
-
-const items = [
-  {
-    category: "Top's",
-    title: "Hoody",
-    price: "40.00",
-    url: "/images/merch1.webp",
-  },
-  {
-    category: "Top's",
-    title: "Training Top",
-    price: "30.00",
-    url: "/images/merch2.webp",
-  },
-  {
-    category: "Shirt's",
-    title: "Polo",
-    price: "15.00",
-    url: "/images/merch3.webp",
-  },
-  {
-    category: "Bags's",
-    title: "Backpack",
-    price: "20.00",
-    url: "/images/merch4.webp",
-  },
-  {
-    category: "Hat's",
-    title: "Beanie",
-    price: "10.00",
-    url: "/images/merch5.webp",
-  },
-  {
-    category: "Mask's",
-    title: "Cottton Mask",
-    price: "5.00",
-    url: "/images/merch6.webp",
-  },
-];
+import Button from "../components/Button";
 ---
 
 <Layout title="Merchandise">
@@ -51,8 +14,11 @@ const items = [
   >
     <div class="flex flex-wrap -m-4">
       {
-        items.map(({ title, category, price, url }) => (
-          <div class="lg:w-1/3 md:w-1/2 p-4 w-full">
+        items.map(({ title, category, price, url }, index) => (
+          <div
+            data-aos={`fade-${index % 2 === 0 ? "left" : "right"}`}
+            class="lg:w-1/3 md:w-1/2 p-4 w-full"
+          >
             <a class="block relative h-48 rounded overflow-hidden">
               <Image
                 width={300}
@@ -82,11 +48,7 @@ const items = [
         available, seize the opportunity to look your best while pushing your
         limits.
       </h1>
-      <div
-        class="flex-shrink-0 text-white bg-orange-600 border-0 py-2 px-8 focus:outline-none rounded mt-10 sm:mt-0"
-      >
-        Shop Now
-      </div>
+      <Button text="Shop now"/>
     </div>
   </PageLayout>
 </Layout>
