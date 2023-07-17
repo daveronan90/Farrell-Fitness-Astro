@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
-import { defaultReviews } from '../js/reviewsData'
+import { useEffect, useState } from 'react'
+import { Review, defaultReviews } from '../js/reviewsData'
 
 function reduceWords(string: string, limit: number) {
 	const words = string.trim().split(' ')
@@ -17,6 +17,28 @@ function reduceWords(string: string, limit: number) {
 
 const GoogleMapsReviews = () => {
 	const [reviews, setReviews] = useState(defaultReviews)
+
+	const getData = async () => {
+		try {
+			const data = await fetch(
+				// 'https://cors-anywhere.herokuapp.com/' +
+				`https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJ57zwmbi2QkgRVTALYHxr62g&fields=reviews&key=${
+					import.meta.env.PUBLIC_PLACES_API_KEY
+				}`
+			)
+			const res = await data.json()
+
+			setReviews(res.result.reviews)
+			return
+		} catch (error) {
+			console.error('Error Message:', error)
+			return
+		}
+	}
+	useEffect(() => {
+		getData()
+	}, [])
+
 	return (
 		<div>
 			<section className="my-12">
