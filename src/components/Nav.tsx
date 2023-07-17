@@ -1,48 +1,44 @@
-import { motion } from "framer-motion";
-import { Squash as Hamburger } from "hamburger-react";
-import { useState } from "react";
-import { headings } from "../js/NavLinks";
-import TextLogo from "./FFTextLogo";
+import { motion } from 'framer-motion'
+import { Squash as Hamburger } from 'hamburger-react'
+import { useState } from 'react'
+import { headings } from '../js/NavLinks'
+import TextLogo from './FFTextLogo'
 
 export default function Nav() {
-  const [toggled, setToggled] = useState(false);
+	const [toggled, setToggled] = useState(false)
 
-  return (
-    <nav className="flex items-center justify-between my-4 lg:my-8">
-      <a className="relative z-50" href="/">
-        <TextLogo />
-      </a>
-      <div onClick={() => setToggled(!toggled)} className="lg:hidden">
-        <div className="relative z-50 mr-2">
-          <Hamburger toggled={toggled} toggle={setToggled} size={20} />
-        </div>
-        {toggled && (
-          <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="fixed inset-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-orange-600"
-          >
-            <div className="flex h-full flex-col items-center justify-center space-y-12">
-              {headings.map(({ name, url }, index) => (
-                <a
-                  className="hover:text-orange-800"
-                  href={`/${url}`}
-                  key={index}
-                >
-                  {name}
-                </a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </div>
-      <div className="lg:flex hidden w-full justify-end items-center relative z-20 space-x-6">
-        {headings.map(({ name, url }, index) => (
-          <a className="hover:text-orange-800" href={`/${url}`} key={index}>
-            {name}
-          </a>
-        ))}
-      </div>
-    </nav>
-  );
+	return (
+		<nav className="my-4 flex items-center justify-between lg:my-8">
+			<a className="relative z-50" href="/">
+				<TextLogo />
+			</a>
+			<div onClick={() => setToggled(!toggled)} className="lg:hidden">
+				<div className="relative z-50 mr-2">
+					<Hamburger toggled={toggled} toggle={setToggled} size={20} />
+				</div>
+				{toggled && (
+					<motion.div
+						initial={{ opacity: 0, x: -100 }}
+						animate={{ opacity: 1, x: 0 }}
+						className="fixed inset-0 z-40 flex h-screen w-full flex-col items-center justify-center bg-orange-600"
+					>
+						<div className="flex h-full flex-col items-center justify-center space-y-12">
+							{headings.map(({ name, url }, index) => (
+								<a className="hover:text-orange-800" href={`/${url}`} key={index}>
+									{name}
+								</a>
+							))}
+						</div>
+					</motion.div>
+				)}
+			</div>
+			<div className="relative z-20 hidden w-full items-center justify-end space-x-6 lg:flex">
+				{headings.map(({ name, url }, index) => (
+					<a className="hover:text-orange-800" href={`/${url}`} key={index}>
+						{name}
+					</a>
+				))}
+			</div>
+		</nav>
+	)
 }

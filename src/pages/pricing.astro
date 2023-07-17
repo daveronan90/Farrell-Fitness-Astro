@@ -1,17 +1,17 @@
 ---
-import Button from "../components/Button";
-import PriceList from "../components/PriceList";
-import Layout from "../layouts/Layout.astro";
-import PageLayout from "../layouts/PageLayout.astro";
+import Button from '../components/Button'
+import PriceList from '../components/PriceList'
+import Layout from '../layouts/Layout.astro'
+import PageLayout from '../layouts/PageLayout.astro'
 ---
 
 <Layout title="Membership">
-  <PageLayout
-    title="Price List"
-    summary="Explore our affordable price listing for a wide range of services and memberships at Farrell Fitness. From open gym access to personalized training programs, achieve your fitness goals without breaking the bank. Join us and start your fitness journey today!"
-    videoPath="/videos/mainVideo.webm"
-  >
-    <PriceList client:load />
-    <Button text="sign up" />
-  </PageLayout>
+	<PageLayout
+		title="Price List"
+		summary="Explore our affordable price listing for a wide range of services and memberships at Farrell Fitness. From open gym access to personalized training programs, achieve your fitness goals without breaking the bank. Join us and start your fitness journey today!"
+		videoPath="/videos/mainVideo.webm"
+	>
+		<PriceList client:load />
+		<Button text="sign up" />
+	</PageLayout>
 </Layout>

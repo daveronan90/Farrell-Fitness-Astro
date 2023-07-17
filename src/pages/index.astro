@@ -1,94 +1,79 @@
 ---
-import { Image } from "astro:assets";
-import Logo from "../../public/images/LogoCycles.webp";
-import FFLogo from "../components/FFLogo";
-import PricingComponent from "../components/PricingComponent";
-import ServiceIcon from "../components/ServiceIcon";
-import VideoPlayer from "../components/VideoPlayer";
-import { facilities } from "../js/facilitiesData";
-import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets'
+import Logo from '../../public/images/LogoCycles.webp'
+import FFLogo from '../components/FFLogo'
+import PricingComponent from '../components/PricingComponent'
+import ServiceIcon from '../components/ServiceIcon'
+import VideoPlayer from '../components/VideoPlayer'
+import { facilities } from '../js/facilitiesData'
+import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="Gym & Performance Center">
-  <div class="flex justify-center items-center">
-    <Image src={Logo} alt="Logo" loading="eager" />
-  </div>
-  <!-- <FFLogo /> -->
-  <!-- <VideoPlayer client:visible videoPath="/videos/OpenGym.webm" /> -->
-  <div>
-    <h1 class="md:text-8xl text-4xl font-black text-center flex flex-col">
-      <span class="leading-snug tracking-tight">sign up to</span>
-      <a
-        href="https://legitfit.com/authenticate/signup/FarrellFitness"
-        class="text-orange-600 hover:text-orange-800 hover:cursor-pointer leading-snug tracking-tight"
-      >
-        farrell fitness
-      </a>
-      <span class="leading-snug tracking-tight">now</span>
-    </h1>
-  </div>
-  <h1
-    class="md:text-8xl text-4xl text-center leading-snug tracking-tight font-black"
-  >
-    Opening Hours
-  </h1>
-  <div class="md:space-y-8 space-y-4 text-sm">
-    <p class="flex justify-between items-center w-full md:text-4xl">
-      <span>Monday - Friday</span><span class="bg-orange-600 px-2 py-1"
-        >6:00am - 9:30pm</span
-      >
-    </p>
-    <p class="flex justify-between w-full md:text-4xl">
-      <span>Saturday - Sunday</span><span class="bg-orange-600 px-2 py-1"
-        >8:00am - 4:00pm</span
-      >
-    </p>
-  </div>
-  <PricingComponent />
-  <ul class="flex flex-wrap">
-    {
-      facilities.map(({ icon, description, url }) => (
-        <ServiceIcon
-          icon={icon}
-          description={description}
-          url={url}
-          client:load
-        />
-      ))
-    }
-  </ul>
-
-  <section class="aspect-square relative flex justify-center items-center">
-    <div class="flex space-y-12 h-full">
-      <div
-        class="bg-gray-300 overflow-hidden p-10 flex items-end justify-start relative -mx-6 md:mx-0"
-      >
-        <iframe
-          class="absolute inset-0"
-          title="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.109383345706!2d-6.931858084197501!3d52.38656737978914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4842b6b899f0bce7%3A0x68eb6b7c600b3055!2sFarrell%20Fitness!5e0!3m2!1sen!2sie!4v1687610160865!5m2!1sen!2sie"
-          width="100%"
-          height="100%"></iframe>
-        <div
-          class="tracking-normal bg-white relative flex flex-wrap py-6 rounded shadow-md text-gray-950"
-        >
-          <div class="lg:w-1/2 px-6">
-            <h2 class="">
-              Farrell Fitness 27, Woodbine Business Park, New Ross, Co. Wexford
-            </h2>
-            <p class="mt-1 text-gray-400">Gym & Fitness Center</p>
-          </div>
-          <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
-            <h2 class="pr-4">EMAIL</h2>
-            <a
-              href="mailto:info.farrellfitness@gmail.com"
-              class="text-orange-600">info.farrellfitness@gmail.com</a
-            >
-            <h2 class="mt-4">Phone</h2>
-            <p>087 775 9716</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+	<div class="flex justify-center items-center">
+		<Image src={Logo} alt="Logo" loading="eager" />
+	</div>
+	<!-- <FFLogo /> -->
+	<VideoPlayer client:visible videoPath="/videos/OpenGym.webm" />
+	<div>
+		<h1 class="md:text-8xl text-4xl font-black text-center flex flex-col">
+			<span class="leading-snug tracking-tight">sign up to</span>
+			<a
+				href="https://legitfit.com/authenticate/signup/FarrellFitness"
+				class="text-orange-600 hover:text-orange-800 hover:cursor-pointer leading-snug tracking-tight"
+			>
+				farrell fitness
+			</a>
+			<span class="leading-snug tracking-tight">now</span>
+		</h1>
+	</div>
+	<h1 class="md:text-8xl text-4xl text-center leading-snug tracking-tight font-black">
+		Opening Hours
+	</h1>
+	<div class="md:space-y-8 space-y-4 text-sm">
+		<p class="flex justify-between items-center w-full md:text-4xl">
+			<span>Monday - Friday</span><span class="bg-orange-600 px-2 py-1">6:00am - 9:30pm</span>
+		</p>
+		<p class="flex justify-between w-full md:text-4xl">
+			<span>Saturday - Sunday</span><span class="bg-orange-600 px-2 py-1">8:00am - 4:00pm</span>
+		</p>
+	</div>
+	<PricingComponent />
+	<ul class="flex flex-wrap">
+		{
+			facilities.map(({ icon, description, url }) => (
+				<ServiceIcon icon={icon} description={description} url={url} client:load />
+			))
+		}
+	</ul>
+	<section class="aspect-square relative flex justify-center items-center">
+		<div class="flex space-y-12 h-full">
+			<div
+				class="bg-gray-300 overflow-hidden p-10 flex items-end justify-start relative -mx-6 md:mx-0"
+			>
+				<iframe
+					class="absolute inset-0"
+					title="map"
+					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.109383345706!2d-6.931858084197501!3d52.38656737978914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4842b6b899f0bce7%3A0x68eb6b7c600b3055!2sFarrell%20Fitness!5e0!3m2!1sen!2sie!4v1687610160865!5m2!1sen!2sie"
+					width="100%"
+					height="100%"></iframe>
+				<div
+					class="tracking-normal bg-white relative flex flex-wrap py-6 rounded shadow-md text-gray-950"
+				>
+					<div class="lg:w-1/2 px-6">
+						<h2 class="">Farrell Fitness 27, Woodbine Business Park, New Ross, Co. Wexford</h2>
+						<p class="mt-1 text-gray-400">Gym & Fitness Center</p>
+					</div>
+					<div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+						<h2 class="pr-4">EMAIL</h2>
+						<a href="mailto:info.farrellfitness@gmail.com" class="text-orange-600"
+							>info.farrellfitness@gmail.com</a
+						>
+						<h2 class="mt-4">Phone</h2>
+						<p>087 775 9716</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 </Layout>

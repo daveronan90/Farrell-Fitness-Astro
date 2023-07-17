@@ -1,54 +1,54 @@
 ---
-import { Image } from "astro:assets";
-import ClassTimetable from "../components/ClassTimetable";
-import { highlightClasses } from "../js/highlightClassesData";
-import Layout from "../layouts/Layout.astro";
-import PageLayout from "../layouts/PageLayout.astro";
+import { Image } from 'astro:assets'
+import ClassTimetable from '../components/ClassTimetable'
+import { highlightClasses } from '../js/highlightClassesData'
+import Layout from '../layouts/Layout.astro'
+import PageLayout from '../layouts/PageLayout.astro'
 ---
 
 <Layout title="Classes">
-  <PageLayout
-    title="classes & team training"
-    summary="Build muscle, improve movement patterns in our team-based strength and conditioning classes. Get expert guidance and form correction from our coaches."
-    videoPath="/videos/classesVideo.mp4"
-  >
-    <ClassTimetable client:load />
+	<PageLayout
+		title="classes & team training"
+		summary="Build muscle, improve movement patterns in our team-based strength and conditioning classes. Get expert guidance and form correction from our coaches."
+		videoPath="/videos/classesVideo.mp4"
+	>
+		<ClassTimetable client:load />
 
-    <div class="flex flex-wrap">
-      {
-        highlightClasses.map(({ title, excerpt, url }) => (
-          <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
-            <div class="rounded-lg h-64 overflow-hidden">
-              <Image
-                width={900}
-                height={600}
-                alt="content"
-                class="object-cover object-center h-full w-full"
-                src={url}
-              />
-            </div>
-            <h2 class="mt-5 text-lg font-bold text-orange-600">{title}</h2>
-            <p class="text-sm mt-2">{excerpt}</p>
-            <a
-              href="https://legitfit.com/authenticate/signup/FarrellFitness"
-              class="text-orange-600 inline-flex items-center mt-3 hover:text-orange-800"
-            >
-              sign up
-              <svg
-                fill="none"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                class="w-4 h-4 ml-2"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        ))
-      }
-    </div>
-  </PageLayout>
+		<div class="flex flex-wrap">
+			{
+				highlightClasses.map(({ title, excerpt, url }) => (
+					<div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+						<div class="rounded-lg h-64 overflow-hidden">
+							<Image
+								width={900}
+								height={600}
+								alt="content"
+								class="object-cover object-center h-full w-full"
+								src={url}
+							/>
+						</div>
+						<h2 class="mt-5 text-lg font-bold text-orange-600">{title}</h2>
+						<p class="text-sm mt-2">{excerpt}</p>
+						<a
+							href="https://legitfit.com/authenticate/signup/FarrellFitness"
+							class="text-orange-600 inline-flex items-center mt-3 hover:text-orange-800"
+						>
+							sign up
+							<svg
+								fill="none"
+								stroke="currentColor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								class="w-4 h-4 ml-2"
+								viewBox="0 0 24 24"
+							>
+								<path d="M5 12h14M12 5l7 7-7 7" />
+							</svg>
+						</a>
+					</div>
+				))
+			}
+		</div>
+	</PageLayout>
 </Layout>
