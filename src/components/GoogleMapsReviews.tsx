@@ -21,19 +21,23 @@ const GoogleMapsReviews = () => {
 	const [reviews, setReviews] = useState(defaultReviews)
 
 	const googleData = async () => {
-		const loader = new google.Loader({
-			apiKey: import.meta.env.PUBLIC_PLACES_API_KEY,
-			version: 'beta',
-			libraries: ['places']
-		})
+		try {
+			const loader = new google.Loader({
+				apiKey: import.meta.env.PUBLIC_PLACES_API_KEY,
+				version: 'beta',
+				libraries: ['places']
+			})
 
-		const { Place } = await loader.importLibrary('places')
+			const { Place } = await loader.importLibrary('places')
 
-		const place = new Place({ id: import.meta.env.PUBLIC_PLACE_ID })
+			const place = new Place({ id: import.meta.env.PUBLIC_PLACE_ID })
 
-		const reviews = await place.fetchFields({ fields: ['reviews'] })
+			const reviews = await place.fetchFields({ fields: ['reviews'] })
 
-		setReviews(reviews.place.g.reviews)
+			setReviews(reviews.place.g.reviews)
+		} catch (error) {
+			console.error('Failed to fetch reviews:', error)
+		}
 	}
 
 	useEffect(() => {
