@@ -1,55 +1,53 @@
 export interface service {
-  desc: string;
-  duration: string;
-  price: string;
-  order: number;
+	desc: string
+	duration: string
+	price: string
 }
 
 export interface ServiceGroup {
-  category: string;
-  services: service[];
-  order: number;
+	category: string
+	services: service[]
 }
 
 export const defaultPriceList: ServiceGroup[] = [
-  {
-    category: "price list",
-    order: 1,
-    services: [
-      { desc: "", duration: "", price: "", order: 1 },
-      { desc: "", duration: "", price: "", order: 2 },
-      { desc: "", duration: "", price: "", order: 3 },
-      { desc: "", duration: "", price: "", order: 4 },
-    ],
-  },
-  {
-    category: "programming",
-    order: 2,
-    services: [
-      { desc: "", duration: "", price: "", order: 1 },
-      { desc: "", duration: "", price: "", order: 2 },
-      { desc: "", duration: "", price: "", order: 3 },
-      { desc: "", duration: "", price: "", order: 4 },
-    ],
-  },
-  {
-    category: "sports message",
-    order: 3,
-    services: [
-      { desc: "", duration: "", price: "", order: 1 },
-      { desc: "", duration: "", price: "", order: 2 },
-      { desc: "", duration: "", price: "", order: 3 },
-      { desc: "", duration: "", price: "", order: 4 },
-    ],
-  },
-  {
-    category: "styku body scans",
-    order: 4,
-    services: [
-      { desc: "", duration: "", price: "", order: 1 },
-      { desc: "", duration: "", price: "", order: 2 },
-      { desc: "", duration: "", price: "", order: 3 },
-      { desc: "", duration: "", price: "", order: 4 },
-    ],
-  },
-];
+	{
+		category: 'price list',
+
+		services: [
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' }
+		]
+	},
+	{
+		category: 'programming',
+
+		services: [
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' }
+		]
+	},
+	{
+		category: 'sports message',
+
+		services: [
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' }
+		]
+	},
+	{
+		category: 'styku body scans',
+
+		services: [
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' },
+			{ desc: '', duration: '', price: '' }
+		]
+	}
+]

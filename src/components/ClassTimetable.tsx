@@ -1,28 +1,15 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
-import { fetchData, stringToTimestamp } from '../js/airtable'
 import { defaultClasses } from '../js/classesData'
+import { getGoogleSheetsData } from '../js/googleSheets'
 
 export default function ClassTimetable() {
 	const [classes, setClasses] = useState(defaultClasses)
 
-	const getData = async () => {
-		const data = await fetchData('Timetable')
-
-		let updateData = data.map((row) => {
-			return [row.null, row.MON, row.TUE, row.WED, row.THU, row.FRI, row.SAT, row.SUN]
-		})
-
-		updateData.unshift(['null', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'])
-
-		updateData.sort((a, b) => stringToTimestamp(a[0]) - stringToTimestamp(b[0]))
-
-		setClasses(updateData)
-	}
-
 	useEffect(() => {
-		getData()
+		getGoogleSheetsData('Timetable', setClasses)
 	}, [])
+
 	return (
 		<motion.div
 			initial={{
