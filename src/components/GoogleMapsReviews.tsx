@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Review, defaultReviews } from '../js/reviewsData'
+import { Loader } from '@googlemaps/js-api-loader'
 
 function reduceWords(string: string, limit: number) {
 	const words = string.trim().split(' ')
@@ -18,25 +19,24 @@ function reduceWords(string: string, limit: number) {
 const GoogleMapsReviews = () => {
 	const [reviews, setReviews] = useState(defaultReviews)
 
-	const getData = async () => {
-		try {
-			const data = await fetch(
-				// 'https://cors-anywhere.herokuapp.com/' +
-				`https://maps.googleapis.com/maps/api/place/details/json?place_id=ChIJ57zwmbi2QkgRVTALYHxr62g&fields=reviews&key=${
-					import.meta.env.PUBLIC_PLACES_API_KEY
-				}`
-			)
-			const res = await data.json()
+	const googleData = async () => {
+		const loader = new Loader({
+			apiKey: import.meta.env.PUBLIC_PLACES_API_KEY,
+			version: 'beta',
+			libraries: ['places']
+		})
 
-			setReviews(res.result.reviews)
-			return
-		} catch (error) {
-			console.error('Error Message:', error)
-			return
-		}
+		const { Place } = await loader.importLibrary('places')
+
+		const place = new Place({ id: import.meta.env.PUBLIC_PLACE_ID })
+
+		const reviews = await place.fetchFields({ fields: ['reviews'] })
+
+		setReviews(reviews.place.g.reviews)
 	}
+
 	useEffect(() => {
-		getData()
+		googleData()
 	}, [])
 
 	return (
@@ -60,14 +60,14 @@ const GoogleMapsReviews = () => {
 									<img
 										alt="testimonial"
 										className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-orange-200 bg-orange-100 object-cover object-center"
-										src={review.profile_photo_url}
+										src={review.authorPhotoURI}
 									/>
-									<a href={review.author_url} className="hover:text-orange-800">
+									<a href={review.authorURI} className="hover:text-orange-800">
 										<p className="text-sm leading-relaxed">{reduceWords(review.text, 30)}</p>
 									</a>
 									<span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-orange-500"></span>
 									<h2 className="title-font text-sm font-bold tracking-wider text-orange-600">
-										{review.author_name}
+										{review.author}
 									</h2>
 									<p className="flex items-center justify-center text-orange-500">
 										{Array.from({ length: review.rating }, () => 1).map((_, index) => (
