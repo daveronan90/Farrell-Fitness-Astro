@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { Review, defaultReviews } from '../js/reviewsData'
-import { Loader } from '@googlemaps/js-api-loader'
+import * as google from '@googlemaps/js-api-loader'
+const { Loader } = google
 
 function reduceWords(string: string, limit: number) {
 	const words = string.trim().split(' ')
@@ -20,7 +21,7 @@ const GoogleMapsReviews = () => {
 	const [reviews, setReviews] = useState(defaultReviews)
 
 	const googleData = async () => {
-		const loader = new Loader({
+		const loader = new google.Loader({
 			apiKey: import.meta.env.PUBLIC_PLACES_API_KEY,
 			version: 'beta',
 			libraries: ['places']
