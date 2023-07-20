@@ -15,6 +15,7 @@ const Cell = React.memo(({ cell, cIdx, rIdx }: { cell: Cell; cIdx: number; rIdx:
             `}
 	>
 		{cell !== 'null' && cell}
+		
 	</div>
 ))
 
