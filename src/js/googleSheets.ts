@@ -50,11 +50,11 @@ export const getGoogleSheetsData = async (
 		if (tableName === 'PriceList') {
 			spreadsheetArr.shift()
 			const groupedSpreadsheetArr = groupByCategory(spreadsheetArr)
+			console.log(groupedSpreadsheetArr)
+
 			setState(groupedSpreadsheetArr)
 			return
 		}
-		console.log(spreadsheetArr)
-
 		setState(spreadsheetArr)
 	} catch (error) {
 		console.error('Error fetching data: ', error)

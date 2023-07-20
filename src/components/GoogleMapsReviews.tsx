@@ -64,17 +64,17 @@ const GoogleMapsReviews = () => {
 								<div className="h-full text-center">
 									<img
 										alt="testimonial"
-										className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-orange-200 bg-orange-100 object-cover object-center"
+										className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-primary-200 bg-primary-100 object-cover object-center"
 										src={review.authorPhotoURI}
 									/>
-									<a href={review.authorURI} className="hover:text-orange-800">
+									<a href={review.authorURI} className="hover:text-primary-800">
 										<p className="text-sm leading-relaxed">{reduceWords(review.text, 30)}</p>
 									</a>
-									<span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-orange-500"></span>
-									<h2 className="title-font text-sm font-bold tracking-wider text-orange-600">
+									<span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-primary"></span>
+									<h2 className="title-font text-sm font-bold tracking-wider text-primary">
 										{review.author}
 									</h2>
-									<p className="flex items-center justify-center text-orange-500">
+									<p className="flex items-center justify-center text-primary">
 										{Array.from({ length: review.rating }, () => 1).map((_, index) => (
 											<svg
 												key={index}

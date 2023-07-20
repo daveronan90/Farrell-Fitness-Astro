@@ -1,7 +1,23 @@
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getGoogleSheetsData } from '../js/googleSheets'
 import { defaultPriceList } from '../js/pricingData'
+
+// Memoized motion.div element
+const PriceListItem = React.memo(
+	({ desc, duration, price }: { desc: string; duration: string; price: string }) => (
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 2 }}
+			className="ml-2 flex font-normal md:ml-4"
+		>
+			<div className="py-3">{desc}</div>
+			<div className="flex-grow px-2 py-3 md:px-12">{duration !== 'null' && duration}</div>
+			<div className="py-3">{price !== '0' && `€${price}`}</div>
+		</motion.div>
+	)
+)
 
 export default function PriceList() {
 	const [priceList, setPriceList] = useState(defaultPriceList)
@@ -13,25 +29,13 @@ export default function PriceList() {
 	return (
 		<div className="text-xxs md:text-base">
 			<div className="font-light">
-				{priceList.map(({ category, services }, cIndex) => (
-					<div key={cIndex} className="w-full">
+				{priceList.map(({ category, services }) => (
+					<div key={category} className="w-full">
 						<div>
 							<div className="py-4 text-base font-medium md:text-2xl">{category}</div>
 						</div>
-						{services.map(({ desc, duration, price }, sIndex) => (
-							<motion.div
-								initial={{ opacity: 0, x: -100 }}
-								animate={{ opacity: 1, x: 0 }}
-								transition={{ duration: 0.2, delay: sIndex * 0.05 }}
-								key={sIndex}
-								className="ml-2 flex font-normal md:ml-4"
-							>
-								<div className="py-3">{desc}</div>
-								<div className="flex-grow px-2 py-3 md:px-12">
-									{duration !== 'null' && duration}
-								</div>
-								<div className="py-3">{`${price != '0' ? `€${price}` : ''}`}</div>
-							</motion.div>
+						{services.map(({ desc, duration, price }) => (
+							<PriceListItem key={desc + duration} desc={desc} duration={duration} price={price} />
 						))}
 					</div>
 				))}

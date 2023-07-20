@@ -3,7 +3,7 @@ export default function FF() {
 		<div className="flex h-full w-full flex-col items-center justify-around">
 			<a href="https://legitfit.com/authenticate/signup/FarrellFitness">
 				<svg
-					className="h-52 fill-black stroke-white hover:fill-white md:h-[25rem]"
+					className="h-52 fill-secondary-950 stroke-secondary hover:fill-secondary md:h-[25rem]"
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 306 204"
 				>

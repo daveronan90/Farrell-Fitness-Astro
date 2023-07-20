@@ -5,7 +5,7 @@ export default function Footer() {
 			<div className="flex flex-col items-center sm:flex-row">
 				<img src="/images/LogoCycles.webp" alt="Logo" className="w-2/6 md:w-1/12" />
 				<span className="ml-3 text-xl">Farrell Fitness</span>
-				<p className="mt-4 text-sm sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
+				<p className="mt-4 text-sm sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-secondary sm:py-2 sm:pl-4">
 					{currentYear}© —
 					<a
 						href="mailto:daveronan90@gmail.com"
@@ -23,7 +23,7 @@ export default function Footer() {
 							strokeLinecap="round"
 							strokeLinejoin="round"
 							strokeWidth="2"
-							className="h-5 w-5 hover:fill-orange-600"
+							className="h-5 w-5 hover:fill-primary"
 							viewBox="0 0 24 24"
 						>
 							<path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
@@ -36,7 +36,7 @@ export default function Footer() {
 							strokeLinecap="round"
 							strokeLinejoin="round"
 							strokeWidth="2"
-							className="h-5 w-5 hover:stroke-orange-600"
+							className="h-5 w-5 hover:stroke-primary"
 							viewBox="0 0 24 24"
 						>
 							<rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
@@ -50,7 +50,7 @@ export default function Footer() {
 							strokeLinecap="round"
 							strokeLinejoin="round"
 							strokeWidth="0"
-							className="h-5 w-5 hover:fill-orange-600"
+							className="h-5 w-5 hover:fill-primary"
 							viewBox="0 0 24 24"
 						>
 							<path

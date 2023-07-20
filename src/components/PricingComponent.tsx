@@ -7,22 +7,24 @@ export default function PricingComponent() {
 				<div
 					key={index}
 					className={`${
-						index === 1 ? 'border-orange-600' : 'border-gray-400'
-					} relative w-full space-y-4 rounded-lg border px-6 py-6 text-gray-400`}
+						index === 1 ? 'border-primary' : 'border-secondary-400'
+					} group relative w-full space-y-4 rounded-lg border px-6 py-6 text-secondary-400`}
 				>
 					<div
 						className={`${
 							index !== 1 && 'hidden'
-						} absolute right-0 top-0 rounded bg-orange-600 p-2 font-bold text-white`}
+						} absolute right-0 top-0 rounded bg-primary p-2 font-bold text-secondary`}
 					>
 						popular
 					</div>
 
 					<h3 className="text-sm font-light md:text-base">{subTitle}</h3>
 					<h1 className="text-3xl">{title}</h1>
-					<h3 className="text-sm font-bold text-white md:text-2xl">€ {price}</h3>
+					<h3 className="text-sm font-bold text-secondary md:text-2xl">€ {price}</h3>
 					<div
-						className={`${index === 1 ? 'bg-orange-600' : 'bg-gray-400'} h-[0.1rem] w-full rounded`}
+						className={`${
+							index === 1 ? 'bg-primary' : 'bg-secondary-400'
+						} h-[0.1rem] w-full rounded`}
 					/>
 					<ul className="space-y-2 pb-10 text-sm font-light md:text-base">
 						{benefits.map((benefit, index) => (
@@ -48,8 +50,10 @@ export default function PricingComponent() {
 					<a href="https://legitfit.com/authenticate/signup/FarrellFitness">
 						<div
 							className={`${
-								index === 1 ? 'bg-orange-600 hover:bg-orange-800' : 'bg-gray-400 hover:bg-gray-800'
-							} cursor-pointer rounded px-3 py-2 font-bold text-gray-200`}
+								index === 1
+									? 'bg-primary hover:bg-primary-800'
+									: 'bg-secondary-400 hover:bg-secondary-800'
+							} cursor-pointer rounded px-3 py-2 font-bold text-secondary`}
 						>
 							Sign Up!
 						</div>

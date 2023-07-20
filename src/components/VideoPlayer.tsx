@@ -5,7 +5,7 @@ interface VideoPlayerProps {
 export default function VideoPlayer({ videoPath }: VideoPlayerProps) {
 	return (
 		<div className="fixed inset-0 -z-30 overflow-hidden">
-			<div className="absolute inset-0 bg-black opacity-75" />
+			<div className="absolute inset-0 bg-secondary-950 opacity-75" />
 			<video
 				className="h-full w-full object-cover"
 				autoPlay
